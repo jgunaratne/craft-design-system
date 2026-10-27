@@ -1,0 +1,69 @@
+{
+  "project": "craft-ds",
+  "_doc": "The kit's own manifest: this repo is both the Craft Design System and its first consumer (index.html is the showcase). kit.dir is '.' so the kit files are protected by name.",
+  "kit": {
+    "dir": ".",
+    "source": "~/git/craft-ds",
+    "version": "0.16.0",
+    "hashes": {}
+  },
+  "sources": [
+    "index.html"
+  ],
+  "styles": [],
+  "exclude": [],
+  "allow_raw": [],
+  "enforce": [
+    "colour",
+    "radius",
+    "font"
+  ],
+  "themes": [
+    "proMedium",
+    "pro",
+    "proLight",
+    "studio",
+    "studioLight",
+    "classic"
+  ],
+  "font_sizes": [
+    "small",
+    "large"
+  ],
+  "screenshots": {
+    "widths": [
+      1480,
+      1024
+    ],
+    "out": "test-results/craft-shots",
+    "command": null
+  },
+  "docs": {
+    "design": "DESIGN.md",
+    "decisions": "docs/DECISIONS.md",
+    "lessons": "docs/LESSONS.md",
+    "deviations_heading": "Deliberate deviations",
+    "scan": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "GEMINI.md",
+      "CONVENTIONS.md",
+      "README.md",
+      "MAPPING.md",
+      "DESIGN.md",
+      "docs/**/*.md",
+      ".claude/**/*.md",
+      ".agents/**/*.md",
+      "templates/**/*.md"
+    ]
+  },
+  "harness": {
+    "claude": true,
+    "gemini": true,
+    "gemini_rule_trigger": "model_decision",
+    "hooks": true
+  },
+  "probes": {
+    "disable": []
+  }
+}

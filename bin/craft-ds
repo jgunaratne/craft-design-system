@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+"""craft-ds: adopt, check and enforce the Craft Design System in a project. Stdlib only."""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "lib"))
+from craftds.cli import main  # noqa: E402
+
+sys.exit(main())

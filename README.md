@@ -29,11 +29,65 @@ craft-ds/
 │   └── craft-ds.js         # Interactive runtime (scrubby labels, math fields, curves, dials)
 ├── tokens/
 │   └── tokens.json         # Machine-readable W3C/JSON design tokens for all 14 themes
-└── assets/
-    ├── brand/              # PhotoCraft kitsune app icon
-    ├── fonts/              # Inter (Regular, Medium, SemiBold) & JetBrains Mono + OFL licenses
-    └── icons/              # 161 raw SVG icons (24x24 viewBox, 1.75px stroke)
+├── assets/
+│   ├── brand/              # PhotoCraft kitsune app icon
+│   ├── fonts/              # Inter (Regular, Medium, SemiBold) & JetBrains Mono + OFL licenses
+│   └── icons/              # 161 raw SVG icons (24x24 viewBox, 1.75px stroke)
+│
+├── bin/craft-ds            # The enforcement CLI (init, apply, check, probe, shoot, update, report)
+├── lib/craftds/            # manifest, kit, probes (15), check (the gate), render — stdlib Python
+├── lib/guard.mjs           # PreToolUse guard for Claude Code *and* Gemini/Jetski (one script)
+├── lib/shoot.mjs           # Screenshots per theme × width × UI font size, with report.json
+├── templates/              # One rule, four skills, the reviewer, hooks, docs, CI — rendered for both tools
+├── craft-ds.json           # This repo's own manifest (kit.dir ".")
+├── .claude/ · .agents/     # The rendered harness, dogfooded here
+├── tests/test_craftds.py   # A fixture project that breaks one rule per test; both hook protocols
+├── MAPPING.md              # The manifest, field by field, and every probe
+├── AGENTS.md · CLAUDE.md · GEMINI.md · CONVENTIONS.md · docs/DECISIONS.md · docs/LESSONS.md
+└── scripts/check.sh        # The whole gate: `CHECK OK`
 ```
+
+---
+
+## Applying the design system to another project (enforced)
+
+Craft DS is not only a stylesheet: it ships the harness that keeps a project on it, for **Claude Code** (`.claude/`) and **Gemini / Jetski** (`.agents/`), rendered from one set of templates so both tools read the same words. The method is the one distilled in `~/git/ui-consistency` from `~/git/tally-ho`; here it is bound to one concrete design system.
+
+```sh
+CDS=~/git/craft-ds/bin/craft-ds
+
+# 1. Vendor the kit (read-only, hash-pinned) and write the manifest
+$CDS init ~/src/my-app --sources "src/**/*.html,src/**/*.tsx" --styles "src/**/*.css" --themes proMedium,studio,classic
+
+# 2. Render the harness: rule (paths: / trigger:), 4 skills, the read-only reviewer, guard hooks, doc skeletons, CI
+$CDS apply ~/src/my-app          # never overwrites; prints the AGENTS.md section to paste
+
+# 3. The gate and the evidence
+$CDS check ~/src/my-app          # manifest, kit pins, dead paths, frontmatter, .claude == .agents, hooks
+$CDS probe ~/src/my-app          # 15 drift probes with file:line, each naming the rule it checks
+$CDS probe ~/src/my-app --update-baseline   # commit .craft-ds-baseline.json; CI fails only if drift grows
+
+# 4. Look at the pixels
+$CDS shoot ~/src/my-app http://localhost:3000/ --font-sizes small,large   # per theme × width; report.json
+
+# 5. Later
+$CDS update ~/src/my-app         # replace the kit whole, re-pin, re-probe
+```
+
+What the project gets:
+
+| Piece | Claude Code | Gemini / Jetski |
+|---|---|---|
+| The rule (loads when UI files are touched) | `.claude/rules/craft-ds.md` with `paths:` | `.agents/rules/craft-ds.md` with `trigger: model_decision` |
+| Skills: `craft-new-component`, `craft-visual-check`, `craft-drift-and-align`, `craft-upgrade` | `.claude/skills/*/SKILL.md` | `.agents/skills/*/SKILL.md` |
+| Read-only reviewer `craft-design-reviewer` | `.claude/agents/` | `.agents/agents/` |
+| Guard: the vendored kit and the baseline cannot be edited by an agent | `.claude/settings.json` → `.claude/hooks/craft-guard.mjs` (exit 2) | `.agents/hooks.json` → `.agents/hooks/craft-guard.mjs` (`{"decision":"deny"}`) |
+| Docs skeletons | the project's design doc (with a "Deliberate deviations" table), decisions log, lessons log, and an `AGENTS.md` start-here if it has none | same |
+| CI | `.github/workflows/craft-ds.yml`: `check` + `probe --baseline` | same |
+
+The rules the probes enforce, in one line each: the kit is read-only (`kit-intact`); colour, radius and type are `--craft-*` tokens (`raw-colours`, `raw-values`, `unknown-tokens`); themes are tokens and grammars are flags (`theme-patches`, `token-overrides`, `theme-ids`, `grammar-flags`); kit classes and icons exist and are never restyled (`class-names`, `icon-names`, `component-restyle`); icon-only buttons are named (`named-controls`); deviations are written down (`deviations-logged`); the rule covers every UI file (`rule-coverage`); the kit agrees with itself (`kit-consistency`). Full table: [MAPPING.md](MAPPING.md). This repo runs the same gate on its own showcase (`bash scripts/check.sh`).
+
+In this repo, the `craft-adopt` skill (`.claude/skills/craft-adopt`, `.agents/skills/craft-adopt`) walks an agent through the whole adoption, migration and proof.
 
 ---
 

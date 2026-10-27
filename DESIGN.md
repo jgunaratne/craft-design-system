@@ -1,6 +1,6 @@
 # Craft Design System (`craft-ds`) — Specification (`DESIGN.md`)
 
-> Extracted from **PhotoCraft** (`crates/ui-egui/src/theme.rs`, `widgets.rs`, `panels.rs`, `icons.rs`, and `docs/ui-design.md`).
+> Extracted from **PhotoCraft** (`crates/ui-egui/src/theme.rs`, `widgets.rs`, `panels.rs`, `icons.rs`, and PhotoCraft’s `ui-design.md`).
 
 ---
 
@@ -98,3 +98,24 @@ Layers, groups, and artboards can be tagged with 11 semantic label colors. Each 
 | **FG/BG Color Chips** | `18×18 px` square (`10 px` offset) | `30 px` round (`19 px` vertical offset) | `21×21 px` square (`12 px` offset) |
 | **Angle Dial** | `42×42 px` circle (`15°` Shift snap) | `42×42 px` circle (`15°` Shift snap) | `42×42 px` circle |
 | **Window / Popup Shadow** | `0 10px 32px` / `0 6px 20px` | `0 10px 32px` / `0 6px 20px` | Sharp `1px` `#808080` border |
+
+---
+
+## 6. Deliberate deviations
+
+Everything that differs on purpose between this web kit and PhotoCraft's egui implementation. A difference not in this table is drift: fix the kit or add a row with a decision.
+
+| What differs | PhotoCraft (reference) | Craft DS (web) | Why | Decision |
+|---|---|---|---|---|
+| Units | `pt` sizes in egui (`12.0`, `12.5`, `15.0`) | the same numbers as CSS `px`, scaled by `--craft-font-scale` | egui points render 1:1 with CSS px at 1× scale; the UI font multiplier reproduces `UiFontSize` | [#2](docs/DECISIONS.md) |
+| Theme switching | `ThemeKind` enum applied at frame time | `data-craft-theme` + three grammar flags + `data-craft-dark` on `<html>` (or any `.craft-scope`) | lets several themes coexist on one page (the grammar comparison) and keeps CSS selectors static | [#1](docs/DECISIONS.md) |
+| Classic bevels | two 1 px painted strokes (`draw_bevel`) | `box-shadow: inset 1px 1px #fff, inset -1px -1px #404040` | one declaration, no extra elements, flips cleanly for sunken fields | [#3](docs/DECISIONS.md) |
+| Popup value field | a floating egui `Area` | a `.craft-popup-slider-popover` absolutely positioned under the field | DOM popovers keep focus and wheel handling in the same stacking context | [#4](docs/DECISIONS.md) |
+| Checkbox glyph | vector check path | CSS-drawn `::after` with two borders rotated 45° | avoids an extra SVG per checkbox; identical at 14 px | — |
+| Icon fallback | missing icon is a compile error | `data-craft-icon` with an unknown name falls back to `sparkles` at runtime and is a `craft-ds probe` finding (`icon-names`) | a web page must still render; the probe makes the slip visible | [#5](docs/DECISIONS.md) |
+| Swap-arrow icons | drawn with `painter.line_segment` | inline SVG paths in `craft-ds.js` (`getProSwapArrowSvg`, `getStudioSwapArcSvg`) | they depend on the grammar, so they are rendered by the runtime, not the icon set | — |
+| Theme persistence | preferences file | `?theme=` / `?font=` query, else the attribute already on `<html>`, else `proMedium` | makes every state a URL (screenshots, bug reports) without storage | [#6](docs/DECISIONS.md) |
+
+## 7. Enforcement
+
+The kit ships with the tooling that keeps a project on it: `bin/craft-ds` (`check`, `probe`, `apply`, `shoot`, `update`), a rule, four skills and a read-only reviewer rendered identically for Claude Code (`.claude/`) and Gemini/Jetski (`.agents/`), and a guard hook that keeps the vendored kit read-only. See [README.md](README.md) and [MAPPING.md](MAPPING.md).

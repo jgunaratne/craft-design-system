@@ -1659,8 +1659,9 @@
       });
     });
 
-    // Swatch clicks
+    // Swatch clicks (a swatch's colour is data: `data-swatch-color` paints it)
     document.querySelectorAll('.craft-swatch[data-swatch-color]').forEach((sw) => {
+      sw.style.backgroundColor = sw.getAttribute('data-swatch-color');
       sw.addEventListener('click', () => {
         document.querySelectorAll('.craft-swatch').forEach((s) => s.classList.remove('is-selected'));
         sw.classList.add('is-selected');
@@ -1771,12 +1772,19 @@
       });
     });
 
-    // Apply initial theme (check ?theme= query param first)
+    // Apply initial theme and UI font size. Priority: ?theme= / ?font= query, then whatever is
+    // already on <html> (a host page or the screenshot tool may set it), then the kit default.
     const params = new URLSearchParams(window.location.search);
-    const urlTheme = params.get('theme');
+    const htmlEl = document.documentElement;
+    const urlTheme = params.get('theme') || htmlEl.getAttribute('data-craft-theme');
     if (urlTheme && SPEC.themes.some((t) => t.id === urlTheme)) {
       state.themeId = urlTheme;
     }
+    const urlFont = params.get('font') || htmlEl.getAttribute('data-craft-font-size');
+    if (urlFont && ['tiny', 'small', 'medium', 'large'].includes(urlFont)) {
+      state.fontSize = urlFont;
+    }
+    setFontSize(state.fontSize);
     setTheme(state.themeId);
     updateColorChipsUI();
   }

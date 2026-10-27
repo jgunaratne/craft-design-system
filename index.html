@@ -42,7 +42,7 @@
         <label for="ds-theme-select" class="craft-small" style="font-weight:500;">Theme:</label>
         <select id="ds-theme-select" class="craft-dropdown" style="min-width:190px; outline:none;"></select>
         <button type="button" id="ds-cycle-theme-btn" class="craft-icon-btn" title="Cycle Appearance (ThemeKind::ALL)">
-          <span class="craft-icon" data-craft-icon="sun-moon"></span>
+          <span class="craft-icon" data-craft-icon="sun"></span>
         </button>
 
         <span class="craft-vsep"></span>
@@ -152,7 +152,7 @@
 
           <div class="craft-window-controls">
             <button type="button" class="craft-icon-btn" style="height:100%; width:34px; border-radius:0;" onclick="CraftDS.cycleAppearance()" title="Cycle Appearance Theme">
-              <span class="craft-icon" data-craft-icon="sun-moon"></span>
+              <span class="craft-icon" data-craft-icon="sun"></span>
             </button>
             <button type="button" class="craft-win-btn" title="Minimize">
               <span class="craft-icon craft-icon-sm" data-craft-icon="minus"></span>
@@ -273,15 +273,15 @@
               <div class="craft-color-chips-pro" title="Foreground / Background Color Chips (Click X to Swap, D for Default)">
                 <button type="button" class="craft-chip-default-btn" data-action-default-colors data-craft-default-chip-icon title="Default Foreground &amp; Background Colors (D)"></button>
                 <button type="button" class="craft-chip-swap-btn" data-action-swap-colors data-craft-pro-swap title="Swap Foreground &amp; Background Colors (X)"></button>
-                <div class="craft-chip-square-bg" data-bg-chip data-action-swap-colors style="background:#ffffff;"></div>
-                <div class="craft-chip-square-fg" data-fg-chip data-action-swap-colors style="background:#378ef0;"></div>
+                <div class="craft-chip-square-bg" data-bg-chip data-action-swap-colors></div>
+                <div class="craft-chip-square-fg" data-fg-chip data-action-swap-colors></div>
               </div>
 
               <!-- Studio Round Stacked 30px Chips -->
               <div class="craft-color-chips-studio" title="Studio 30px Round Color Chips">
                 <div class="craft-chips-round-stack">
-                  <div class="craft-chip-round-bg" data-bg-chip data-action-swap-colors style="background:#ffffff;"></div>
-                  <div class="craft-chip-round-fg" data-fg-chip data-action-swap-colors style="background:#378ef0;"></div>
+                  <div class="craft-chip-round-bg" data-bg-chip data-action-swap-colors></div>
+                  <div class="craft-chip-round-fg" data-fg-chip data-action-swap-colors></div>
                 </div>
                 <button type="button" class="craft-studio-swap-arc" data-action-swap-colors data-craft-studio-swap title="Swap Foreground &amp; Background Colors (X)"></button>
               </div>
@@ -350,18 +350,18 @@
                   <code id="ws-fg-hex" class="craft-mono" style="font-size:11px; color:var(--craft-accent);">#378EF0</code>
                 </div>
                 <div class="craft-swatch-grid">
-                  <div class="craft-swatch is-selected" data-swatch-color="#378ef0" style="background:#378ef0;" title="Spectrum Blue #378ef0"></div>
-                  <div class="craft-swatch" data-swatch-color="#8b7cf6" style="background:#8b7cf6;" title="Studio Violet #8b7cf6"></div>
-                  <div class="craft-swatch" data-swatch-color="#fc5d5b" style="background:#fc5d5b;" title="Coral Red #fc5d5b"></div>
-                  <div class="craft-swatch" data-swatch-color="#f79744" style="background:#f79744;" title="Amber Orange #f79744"></div>
-                  <div class="craft-swatch" data-swatch-color="#dcd64b" style="background:#dcd64b;" title="Citrine Yellow #dcd64b"></div>
-                  <div class="craft-swatch" data-swatch-color="#85dc6a" style="background:#85dc6a;" title="Emerald Green #85dc6a"></div>
-                  <div class="craft-swatch" data-swatch-color="#1c8488" style="background:#1c8488;" title="Seafoam Teal #1c8488"></div>
-                  <div class="craft-swatch" data-swatch-color="#3aace8" style="background:#3aace8;" title="Breeze Sky #3aace8"></div>
-                  <div class="craft-swatch" data-swatch-color="#cc1a7e" style="background:#cc1a7e;" title="Magenta #cc1a7e"></div>
-                  <div class="craft-swatch" data-swatch-color="#b014c0" style="background:#b014c0;" title="Fuchsia #b014c0"></div>
-                  <div class="craft-swatch" data-swatch-color="#ffffff" style="background:#ffffff;" title="Pure White #ffffff"></div>
-                  <div class="craft-swatch" data-swatch-color="#141415" style="background:#141415;" title="Carbon Black #141415"></div>
+                  <div data-craft-allow class="craft-swatch is-selected" data-swatch-color="#378ef0" title="Spectrum Blue #378ef0"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#8b7cf6" title="Studio Violet #8b7cf6"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#fc5d5b" title="Coral Red #fc5d5b"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#f79744" title="Amber Orange #f79744"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#dcd64b" title="Citrine Yellow #dcd64b"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#85dc6a" title="Emerald Green #85dc6a"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#1c8488" title="Seafoam Teal #1c8488"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#3aace8" title="Breeze Sky #3aace8"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#cc1a7e" title="Magenta #cc1a7e"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#b014c0" title="Fuchsia #b014c0"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#ffffff" title="Pure White #ffffff"></div>
+                  <div data-craft-allow class="craft-swatch" data-swatch-color="#141415" title="Carbon Black #141415"></div>
                 </div>
               </div>
 
@@ -369,7 +369,7 @@
                 <div class="craft-slider-row" style="grid-template-columns:22px 1fr 54px;">
                   <span class="craft-scrub-label" data-scrub-target="ws-hue-inp">H</span>
                   <div id="ws-hue-sl" class="craft-slider is-gradient" data-min="0" data-max="360" data-default="210" data-value="210" data-target-input="ws-hue-inp">
-                    <div class="craft-slider-track" style="background:linear-gradient(to right,#ff0000,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff,#ff0000);"></div>
+                    <div data-craft-allow class="craft-slider-track" style="background:linear-gradient(to right,#ff0000,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff,#ff0000);"></div>
                     <div class="craft-slider-knob"></div>
                   </div>
                   <div class="craft-value-field" style="width:54px;">
@@ -380,7 +380,7 @@
                 <div class="craft-slider-row" style="grid-template-columns:22px 1fr 54px;">
                   <span class="craft-scrub-label" data-scrub-target="ws-sat-inp">S</span>
                   <div id="ws-sat-sl" class="craft-slider is-gradient" data-min="0" data-max="100" data-default="78" data-value="78" data-target-input="ws-sat-inp">
-                    <div class="craft-slider-track" style="background:linear-gradient(to right,#808080,#378ef0);"></div>
+                    <div data-craft-allow class="craft-slider-track" style="background:linear-gradient(to right,#808080,#378ef0);"></div>
                     <div class="craft-slider-knob"></div>
                   </div>
                   <div class="craft-value-field" style="width:54px;">
@@ -506,17 +506,17 @@
                 <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Link Layers"><span class="craft-icon craft-icon-sm" data-craft-icon="link-2"></span></button>
                 <button type="button" class="craft-icon-btn craft-icon-btn-sm" data-open-modal="modal-layer-style" title="Add a Layer Style (fx)"><span class="craft-icon craft-icon-sm" data-craft-icon="sparkles"></span></button>
                 <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Add Layer Mask"><span class="craft-icon craft-icon-sm" data-craft-icon="contrast"></span></button>
-                <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Create New Fill or Adjustment Layer"><span class="craft-icon craft-icon-sm" data-craft-icon="contrast-2"></span></button>
+                <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Create New Fill or Adjustment Layer"><span class="craft-icon craft-icon-sm" data-craft-icon="adjustment-layer"></span></button>
                 <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Create a New Group"><span class="craft-icon craft-icon-sm" data-craft-icon="folder-plus"></span></button>
                 <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Create a New Layer"><span class="craft-icon craft-icon-sm" data-craft-icon="file-plus"></span></button>
-                <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Delete Layer"><span class="craft-icon craft-icon-sm" data-craft-icon="trash-2"></span></button>
+                <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Delete Layer"><span class="craft-icon craft-icon-sm" data-craft-icon="trash"></span></button>
               </div>
             </div>
           </aside>
 
           <!-- Far-Right Collapsed Dock Icon Rail (widgets/buttons.rs: rail_button) -->
           <aside class="craft-rail" aria-label="Collapsed Dock Rail">
-            <button type="button" class="craft-rail-btn is-active" title="History Panel"><span class="craft-icon" data-craft-icon="history"></span></button>
+            <button type="button" class="craft-rail-btn is-active" title="History Panel"><span class="craft-icon" data-craft-icon="clock"></span></button>
             <button type="button" class="craft-rail-btn" title="Properties Panel"><span class="craft-icon" data-craft-icon="sliders-horizontal"></span></button>
             <button type="button" class="craft-rail-btn" title="Character / Typography"><span class="craft-icon" data-craft-icon="type"></span></button>
             <button type="button" class="craft-rail-btn" title="Brushes Panel"><span class="craft-icon" data-craft-icon="brush"></span></button>
@@ -628,11 +628,11 @@
                   <span>Auto-Select:</span>
                 </label>
                 <div class="craft-locks-pro">
-                  <button type="button" class="craft-icon-btn craft-icon-btn-sm"><span class="craft-icon craft-icon-sm" data-craft-icon="grid-3x3"></span></button>
-                  <button type="button" class="craft-icon-btn craft-icon-btn-sm"><span class="craft-icon craft-icon-sm" data-craft-icon="brush"></span></button>
-                  <button type="button" class="craft-icon-btn craft-icon-btn-sm"><span class="craft-icon craft-icon-sm" data-craft-icon="move"></span></button>
-                  <button type="button" class="craft-icon-btn craft-icon-btn-sm"><span class="craft-icon craft-icon-sm" data-craft-icon="scan"></span></button>
-                  <button type="button" class="craft-icon-btn craft-icon-btn-sm is-active"><span class="craft-icon craft-icon-sm" data-craft-icon="lock"></span></button>
+                  <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Lock Transparent Pixels"><span class="craft-icon craft-icon-sm" data-craft-icon="grid-3x3"></span></button>
+                  <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Lock Image Pixels"><span class="craft-icon craft-icon-sm" data-craft-icon="brush"></span></button>
+                  <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Lock Position"><span class="craft-icon craft-icon-sm" data-craft-icon="move"></span></button>
+                  <button type="button" class="craft-icon-btn craft-icon-btn-sm" title="Prevent Auto-Nesting"><span class="craft-icon craft-icon-sm" data-craft-icon="scan"></span></button>
+                  <button type="button" class="craft-icon-btn craft-icon-btn-sm is-active" title="Lock All"><span class="craft-icon craft-icon-sm" data-craft-icon="lock"></span></button>
                 </div>
               </div>
               <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:4px;">
@@ -670,7 +670,7 @@
                   <span>Auto-Select</span>
                 </label>
                 <div class="craft-locks-studio">
-                  <button type="button" class="craft-icon-btn craft-icon-btn-sm is-active"><span class="craft-icon craft-icon-sm" data-craft-icon="lock"></span></button>
+                  <button type="button" class="craft-icon-btn craft-icon-btn-sm is-active" title="Lock All"><span class="craft-icon craft-icon-sm" data-craft-icon="lock"></span></button>
                   <span class="craft-small">Lock</span>
                 </div>
               </div>
@@ -761,7 +761,7 @@
               <code class="craft-mono craft-small">Inter-Regular • 12 / 12.5 pt</code>
             </div>
             <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--craft-separator); padding-bottom:6px;">
-              <span class="craft-mono">Monospace — 1920 × 1080 px • #378EF0 • 100.0 %</span>
+              <span class="craft-mono" data-craft-allow>Monospace — 1920 × 1080 px • #378EF0 • 100.0 %</span>
               <code class="craft-mono craft-small">JetBrains Mono • 12.0 pt</code>
             </div>
             <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--craft-separator); padding-bottom:6px;">
@@ -853,9 +853,9 @@
             <span class="craft-vsep"></span>
             <button type="button" class="craft-icon-btn" title="Default Icon Button"><span class="craft-icon" data-craft-icon="move"></span></button>
             <button type="button" class="craft-icon-btn is-active" title="Active / Selected Icon Button"><span class="craft-icon" data-craft-icon="brush"></span></button>
-            <button type="button" class="craft-icon-btn" title="Flip Horizontal"><span class="craft-icon" data-craft-icon="flip-horizontal-2"></span></button>
-            <button type="button" class="craft-icon-btn" title="Align Center"><span class="craft-icon" data-craft-icon="align-center-horizontal"></span></button>
-            <button type="button" class="craft-icon-btn" title="Trash"><span class="craft-icon" data-craft-icon="trash-2"></span></button>
+            <button type="button" class="craft-icon-btn" title="Flip Horizontal"><span class="craft-icon" data-craft-icon="symmetry-horizontal"></span></button>
+            <button type="button" class="craft-icon-btn" title="Align Center"><span class="craft-icon" data-craft-icon="align-edge-hcenter"></span></button>
+            <button type="button" class="craft-icon-btn" title="Trash"><span class="craft-icon" data-craft-icon="trash"></span></button>
           </div>
 
           <div class="craft-section-header" style="margin-top:4px;">
@@ -1031,7 +1031,7 @@
           <div class="craft-slider-row">
             <span class="craft-scrub-label" data-scrub-target="sl-demo-temp-inp">Temp (5px)</span>
             <div id="sl-demo-temp" class="craft-slider is-gradient" data-min="-100" data-max="100" data-default="0" data-value="18" data-target-input="sl-demo-temp-inp">
-              <div class="craft-slider-track" style="background:linear-gradient(to right, #378ef0, #e5e7eb, #f79744);"></div>
+              <div data-craft-allow class="craft-slider-track" style="background:linear-gradient(to right, #378ef0, #e5e7eb, #f79744);"></div>
               <div class="craft-slider-knob"></div>
             </div>
             <div class="craft-value-field">
@@ -1177,10 +1177,10 @@
             <div style="padding:12px 6px; background:var(--craft-dock); border:1px solid var(--craft-separator); border-radius:var(--craft-radius); display:flex; flex-direction:column; align-items:center; gap:8px;">
               <span class="craft-small" style="font-weight:500;">Pro (18×18px)</span>
               <div class="craft-color-chips-pro" style="display:block !important;">
-                <button type="button" class="craft-chip-default-btn" data-action-default-colors data-craft-default-chip-icon></button>
-                <button type="button" class="craft-chip-swap-btn" data-action-swap-colors data-craft-pro-swap></button>
-                <div class="craft-chip-square-bg" data-bg-chip data-action-swap-colors style="background:#ffffff;"></div>
-                <div class="craft-chip-square-fg" data-fg-chip data-action-swap-colors style="background:#378ef0;"></div>
+                <button type="button" class="craft-chip-default-btn" data-action-default-colors data-craft-default-chip-icon title="Default Foreground &amp; Background Colors (D)"></button>
+                <button type="button" class="craft-chip-swap-btn" data-action-swap-colors data-craft-pro-swap title="Swap Foreground &amp; Background Colors (X)"></button>
+                <div class="craft-chip-square-bg" data-bg-chip data-action-swap-colors></div>
+                <div class="craft-chip-square-fg" data-fg-chip data-action-swap-colors></div>
               </div>
               <code class="craft-mono craft-small">step: 10px</code>
             </div>
@@ -1189,23 +1189,23 @@
               <span class="craft-small" style="font-weight:500;">Studio (30px)</span>
               <div class="craft-color-chips-studio" style="display:flex !important;">
                 <div class="craft-chips-round-stack">
-                  <div class="craft-chip-round-bg" data-bg-chip data-action-swap-colors style="background:#ffffff;"></div>
-                  <div class="craft-chip-round-fg" data-fg-chip data-action-swap-colors style="background:#378ef0;"></div>
+                  <div class="craft-chip-round-bg" data-bg-chip data-action-swap-colors></div>
+                  <div class="craft-chip-round-fg" data-fg-chip data-action-swap-colors></div>
                 </div>
-                <button type="button" class="craft-studio-swap-arc" data-action-swap-colors data-craft-studio-swap></button>
+                <button type="button" class="craft-studio-swap-arc" data-action-swap-colors data-craft-studio-swap title="Swap Foreground &amp; Background Colors (X)"></button>
               </div>
               <code class="craft-mono craft-small">step: 19px</code>
             </div>
 
-            <div style="padding:12px 6px; background:#d4d0c8; color:#000000; border:1px solid #808080; display:flex; flex-direction:column; align-items:center; gap:8px;">
-              <span style="font-size:11px; font-weight:600;">Classic (21px)</span>
+            <div class="craft-scope" data-craft-theme="classic" data-craft-pro="false" data-craft-bevel="true" data-craft-round-chips="false" data-craft-dark="false" style="padding:12px 6px; background:var(--craft-chrome); color:var(--craft-text); border:1px solid var(--craft-field-border); display:flex; flex-direction:column; align-items:center; gap:8px;">
+              <span class="craft-small" style="font-weight:600; color:var(--craft-text);">Classic (21px)</span>
               <div class="craft-color-chips-pro" style="display:block !important; width:34px; height:34px;">
-                <button type="button" class="craft-chip-default-btn" data-action-default-colors data-craft-default-chip-icon></button>
-                <button type="button" class="craft-chip-swap-btn" style="color:#000;" data-action-swap-colors data-craft-pro-swap></button>
-                <div class="craft-chip-square-bg" data-bg-chip data-action-swap-colors style="width:21px; height:21px; left:12px; top:12px; border-radius:0; background:#ffffff;"></div>
-                <div class="craft-chip-square-fg" data-fg-chip data-action-swap-colors style="width:21px; height:21px; border-radius:0; background:#378ef0;"></div>
+                <button type="button" class="craft-chip-default-btn" data-action-default-colors data-craft-default-chip-icon title="Default Foreground &amp; Background Colors (D)"></button>
+                <button type="button" class="craft-chip-swap-btn" data-action-swap-colors data-craft-pro-swap title="Swap Foreground &amp; Background Colors (X)"></button>
+                <div class="craft-chip-square-bg" data-bg-chip data-action-swap-colors style="width:21px; height:21px; left:12px; top:12px; border-radius:0;"></div>
+                <div class="craft-chip-square-fg" data-fg-chip data-action-swap-colors style="width:21px; height:21px; border-radius:0;"></div>
               </div>
-              <code class="craft-mono" style="font-size:10px; color:#333;">step: 12px</code>
+              <code class="craft-mono craft-small">step: 12px</code>
             </div>
           </div>
         </div>
@@ -1341,10 +1341,10 @@
       <div class="craft-dialog-body" style="display:flex; flex-direction:column; gap:14px;">
         <div class="craft-section-header"><span>Pro Spectrum Color Theme Swatches</span></div>
         <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
-          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('pro')">Pro Dark (#323232)</button>
-          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('proMedium')">Pro Medium (#535353)</button>
-          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('proLightGray')">Light Gray (#b8b8b8)</button>
-          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('proLight')">Pro Light (#f0f0f0)</button>
+          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('pro')">Pro Dark <code class="craft-mono">#323232</code></button>
+          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('proMedium')">Pro Medium <code class="craft-mono">#535353</code></button>
+          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('proLightGray')">Light Gray <code class="craft-mono">#b8b8b8</code></button>
+          <button type="button" class="craft-btn craft-btn-secondary" onclick="CraftDS.setTheme('proLight')">Pro Light <code class="craft-mono">#f0f0f0</code></button>
         </div>
         <div class="craft-section-header"><span>Studio &amp; Desktop Themes</span></div>
         <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
