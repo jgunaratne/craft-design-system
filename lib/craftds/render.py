@@ -1,5 +1,5 @@
 """Render the harness for one project from `templates/`: the same rule, skills and reviewer written
-for Claude (`.claude/…`, `paths:` frontmatter, settings.json hooks) and for Gemini/Jetski
+for Claude (`.claude/…`, `paths:` frontmatter, settings.json hooks) and for Gemini
 (`.agents/…`, `trigger:` frontmatter, hooks.json). `{{name}}` placeholders only. Existing files are
 never overwritten unless `force` is set."""
 
@@ -143,7 +143,7 @@ def plan(m: dict, only: set[str] | None = None) -> list[tuple[str, str]]:
         out.append((".github/workflows/craft-ds.yml", render_text(util.read(TEMPLATES / "ci" / "github.yml"), vars)))
     if want("docs"):
         # A start-here file for every tool. Written only when the project has none (apply never overwrites).
-        out.append(("AGENTS.md", f"# {vars['project']}: agents start here\n\nThis file is read by every tool (Gemini/Jetski reads it directly; for Claude Code, make CLAUDE.md contain `@AGENTS.md`).\n\n" + agents_snippet(m)))
+        out.append(("AGENTS.md", f"# {vars['project']}: agents start here\n\nThis file is read by every tool (Gemini reads it directly; for Claude Code, make CLAUDE.md contain `@AGENTS.md`).\n\n" + agents_snippet(m)))
     return out
 
 

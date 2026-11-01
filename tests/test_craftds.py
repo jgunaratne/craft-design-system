@@ -330,7 +330,7 @@ class GuardTests(unittest.TestCase):
         ok = self.run_guard({"tool_name": "Bash", "tool_input": {"command": "git diff vendor/craft-ds && echo 'never sed -i vendor/craft-ds'"}})
         self.assertEqual(ok.returncode, 0, ok.stderr)
 
-    def test_jetski_protocol(self):
+    def test_gemini_protocol(self):
         payload = {"toolCall": {"name": "edit_file", "args": {"Path": str(self.fx.dir / "vendor/craft-ds/js/icons.js")}}, "workspacePaths": [str(self.fx.dir)]}
         r = self.run_guard(payload, env_root=False)
         self.assertEqual(r.returncode, 0)

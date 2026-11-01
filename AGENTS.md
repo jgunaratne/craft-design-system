@@ -1,6 +1,6 @@
 # Craft Design System (craft-ds)
 
-The PhotoCraft look as a design system you can hand to any project, with the tooling that keeps the project on it. This file is loaded by every tool (Claude Code reads it as `CLAUDE.md` via `@AGENTS.md`; Jetski/Gemini reads it directly) and says what matters most.
+The PhotoCraft look as a design system you can hand to any project, with the tooling that keeps the project on it. This file is loaded by every tool (Claude Code reads it as `CLAUDE.md` via `@AGENTS.md`; Gemini reads it directly) and says what matters most.
 
 ## When goals conflict, in this order
 1. **The kit is one truth.** `tokens.json`, `tokens-data.js`, `craft-ds.css`, `icons.js` and `assets/` agree with each other and with PhotoCraft (`~/git/photocraft`). Never patch one of them alone; never let a consumer patch its copy.

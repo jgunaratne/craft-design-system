@@ -118,4 +118,4 @@ Everything that differs on purpose between this web kit and PhotoCraft's egui im
 
 ## 7. Enforcement
 
-The kit ships with the tooling that keeps a project on it: `bin/craft-ds` (`check`, `probe`, `apply`, `shoot`, `update`), a rule, four skills and a read-only reviewer rendered identically for Claude Code (`.claude/`) and Gemini/Jetski (`.agents/`), and a guard hook that keeps the vendored kit read-only. See [README.md](README.md) and [MAPPING.md](MAPPING.md).
+The kit ships with the tooling that keeps a project on it: `bin/craft-ds` (`check`, `probe`, `apply`, `shoot`, `update`), a rule, four skills and a read-only reviewer rendered identically for Claude Code (`.claude/`) and Gemini (`.agents/`), and a guard hook that keeps the vendored kit read-only. See [README.md](README.md) and [MAPPING.md](MAPPING.md).

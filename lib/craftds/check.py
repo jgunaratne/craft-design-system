@@ -110,7 +110,7 @@ def run(m: dict) -> list[str]:
             else:
                 trig = fm.get("trigger")
                 if trig not in ("always_on", "model_decision", "glob", "manual"):
-                    fail(f"{dot}/rules/craft-ds.md", "needs `trigger:` (always_on or model_decision) so Jetski/Gemini loads it")
+                    fail(f"{dot}/rules/craft-ds.md", "needs `trigger:` (always_on or model_decision) so Gemini loads it")
                 if trig == "model_decision" and not fm.get("description"):
                     fail(f"{dot}/rules/craft-ds.md", "trigger: model_decision needs a `description:`")
         skills = repo / dot / "skills"

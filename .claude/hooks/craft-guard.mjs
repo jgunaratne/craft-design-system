@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
  * craft-guard.mjs — PreToolUse guard for the Craft Design System, for both Claude Code and
- * Gemini/Jetski. One script, two protocols, detected from the payload:
+ * Gemini. One script, two protocols, detected from the payload:
  *
  *   Claude Code: stdin {tool_name, tool_input, cwd}; exit 2 + stderr blocks the call.
- *   Jetski:      stdin {toolCall: {name, args}, workspacePaths}; stdout {"decision":"deny","reason"}.
+ *   Gemini:      stdin {toolCall: {name, args}, workspacePaths}; stdout {"decision":"deny","reason"}.
  *
  * What it keeps agents from doing:
  *   1. Editing the vendored kit (craft-ds.json → kit.dir): tokens, css, js, icons, fonts, licences.
@@ -22,9 +22,9 @@ const raw = await new Response(process.stdin).text().catch(() => '')
 let input = {}
 try { input = JSON.parse(raw || '{}') } catch { input = {} }
 
-const isJetski = Boolean(input.toolCall)
-const tool = isJetski ? String(input.toolCall.name ?? '') : String(input.tool_name ?? '')
-const args = isJetski ? (input.toolCall.args ?? {}) : (input.tool_input ?? {})
+const isGemini = Boolean(input.toolCall)
+const tool = isGemini ? String(input.toolCall.name ?? '') : String(input.tool_name ?? '')
+const args = isGemini ? (input.toolCall.args ?? {}) : (input.tool_input ?? {})
 
 /** The repo root: where craft-ds.json lives (walk up from the hint). */
 function findRoot(hint) {
@@ -98,12 +98,12 @@ if (SHELL_TOOLS.test(tool)) {
 allow()
 
 function allow() {
-  if (isJetski) process.stdout.write(JSON.stringify({ decision: 'allow' }))
+  if (isGemini) process.stdout.write(JSON.stringify({ decision: 'allow' }))
   process.exit(0)
 }
 function deny(why) {
   const reason = `Blocked by craft-guard.mjs: ${why}`
-  if (isJetski) {
+  if (isGemini) {
     process.stdout.write(JSON.stringify({ decision: 'deny', reason }))
     process.exit(0)
   }

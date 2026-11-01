@@ -46,13 +46,13 @@ Numbered, append-only. Context / Decision / Consequences. Read before re-decidin
 
 **Context.** A design system that projects patch locally stops being one.
 
-**Decision.** `craft-ds init` copies `css/ js/ tokens/ assets/` and the licences into the project and pins SHA-256 hashes in `craft-ds.json`; `craft-ds update` replaces them whole; a PreToolUse guard (one script for Claude Code and Jetski) blocks edits; `kit-intact` and `check` catch what slipped through.
+**Decision.** `craft-ds init` copies `css/ js/ tokens/ assets/` and the licences into the project and pins SHA-256 hashes in `craft-ds.json`; `craft-ds update` replaces them whole; a PreToolUse guard (one script for Claude Code and Gemini) blocks edits; `kit-intact` and `check` catch what slipped through.
 
 **Consequences.** Needs the kit lacks are composed in project files and proposed upstream here (`KIT-GAP` in the drift skill). The kit's own showcase is checked with the same manifest (`kit.dir: "."`).
 
 ## 8. One body, two frontmatters
 
-**Context.** Claude Code loads `.claude/rules/*.md` by `paths:`; Jetski loads `.agents/rules/*.md` by `trigger:`; skills and agents have slightly different headers.
+**Context.** Claude Code loads `.claude/rules/*.md` by `paths:`; Gemini loads `.agents/rules/*.md` by `trigger:`; skills and agents have slightly different headers.
 
 **Decision.** `templates/` hold one body per rule, skill and agent; `craft-ds apply` renders it twice with the right frontmatter; `craft-ds check` fails if the two bodies differ.
 

@@ -248,7 +248,7 @@ def cmd_self_check(a) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(prog="craft-ds", description="Adopt, check and enforce the Craft Design System in a project (Claude Code and Gemini/Jetski).")
+    ap = argparse.ArgumentParser(prog="craft-ds", description="Adopt, check and enforce the Craft Design System in a project (Claude Code and Gemini).")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     p = sub.add_parser("init", help="write craft-ds.json and vendor the kit into a project")
