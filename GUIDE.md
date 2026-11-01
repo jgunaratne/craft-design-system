@@ -36,7 +36,7 @@ craft-ds/
 │
 ├── bin/craft-ds            # The enforcement CLI (init, apply, check, probe, shoot, update, report)
 ├── lib/craftds/            # manifest, kit, probes (15), check (the gate), render — stdlib Python
-├── lib/guard.mjs           # PreToolUse guard for Claude Code *and* Gemini/Jetski (one script)
+├── lib/guard.mjs           # PreToolUse guard for Claude Code *and* Gemini (one script)
 ├── lib/shoot.mjs           # Screenshots per theme × width × UI font size, with report.json
 ├── templates/              # One rule, four skills, the reviewer, hooks, docs, CI — rendered for both tools
 ├── craft-ds.json           # This repo's own manifest (kit.dir ".")
@@ -51,7 +51,7 @@ craft-ds/
 
 ## Applying the design system to another project (enforced)
 
-Craft DS is not only a stylesheet: it ships the harness that keeps a project on it, for **Claude Code** (`.claude/`) and **Gemini / Jetski** (`.agents/`), rendered from one set of templates so both tools read the same words. The method is the one distilled in `~/git/ui-consistency` from `~/git/tally-ho`; here it is bound to one concrete design system.
+Craft DS is not only a stylesheet: it ships the harness that keeps a project on it, for **Claude Code** (`.claude/`) and **Gemini** (`.agents/`), rendered from one set of templates so both tools read the same words. The method is the one distilled in `~/git/ui-consistency` from `~/git/tally-ho`; here it is bound to one concrete design system.
 
 ```sh
 CDS=~/git/craft-ds/bin/craft-ds
@@ -76,7 +76,7 @@ $CDS update ~/src/my-app         # replace the kit whole, re-pin, re-probe
 
 What the project gets:
 
-| Piece | Claude Code | Gemini / Jetski |
+| Piece | Claude Code | Gemini |
 |---|---|---|
 | The rule (loads when UI files are touched) | `.claude/rules/craft-ds.md` with `paths:` | `.agents/rules/craft-ds.md` with `trigger: model_decision` |
 | Skills: `craft-new-component`, `craft-visual-check`, `craft-drift-and-align`, `craft-upgrade` | `.claude/skills/*/SKILL.md` | `.agents/skills/*/SKILL.md` |
